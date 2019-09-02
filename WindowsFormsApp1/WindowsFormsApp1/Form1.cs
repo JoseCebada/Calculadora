@@ -23,28 +23,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void TxtC_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //txtC.Text = "";
-            //textBox2.Text = "32.0";
-            bandera = 1;
-            if (e.KeyChar == 13)
-            {
-                BtnConvertir_Click(sender, e);
-            }
-        }
-
-        private void TextBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //txtC.Text = "0.0";
-            //textBox2.Text = "";
-            bandera = 2;
-            if (e.KeyChar == 13)
-            {
-                BtnConvertir_Click(sender, e);
-            }
-        }
-
         private void Conversor_Load(object sender, EventArgs e)
         {
             btnConvertir.Focus();
@@ -64,7 +42,7 @@ namespace WindowsFormsApp1
                 }
                 if (bandera == 2)
                 {
-                    grados = (Convert.ToDouble(txtC.Text) - 32) * 5.0 / 9.0;
+                    grados = (Convert.ToDouble(textBox2.Text) - 32) * 5.0 / 9.0;
                     //Mostramos el resultado
                     txtC.Text = string.Format("{0:F2}", grados);
                 }
@@ -76,5 +54,32 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtC_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            bandera = 1;
+            if (e.KeyChar == 13)
+            {
+                BtnConvertir_Click(sender, e);
+            }
+        }
+
+        private void TextBox2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            bandera = 2;
+            if (e.KeyChar == 13)
+            {
+                BtnConvertir_Click(sender, e);
+            }
+        }
     }
 }
